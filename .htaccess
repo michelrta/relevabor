@@ -1,0 +1,14 @@
+RewriteEngine On
+
+
+RewriteCond %{REQUEST_URI} !site/
+RewriteRule (.*) /site/$1 [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+#RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ site/
+
+<FilesMatch ".(eot|ttf|otf|woff)">
+	Header set Access-Control-Allow-Origin "*"
+</FilesMatch>
+
+
